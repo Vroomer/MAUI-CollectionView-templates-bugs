@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp10"
+             x:Class="MauiApp10.MainPage"
+             x:DataType="local:MainPageViewModel">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="Black" />
+        </Style>
+    </ContentPage.Resources>
+    <CollectionView ItemsSource="{Binding Data}"
+                    IsGrouped="True">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Border Background="Red"
+                        HeightRequest="20">
+                    <Label Text="{Binding .}" />
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate x:DataType="local:Group">
+                <Border Background="Yellow"
+                        HeightRequest="20">
+                    <Label Text="{Binding Key}" />
+                </Border>
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+        <!--<CollectionView.GroupFooterTemplate>
+            <DataTemplate x:DataType="local:Group">
+                <Border Background="Green"
+                        HeightRequest="20">
+                    <Label Text="{Binding Total}" />
+                </Border>
+            </DataTemplate>
+        </CollectionView.GroupFooterTemplate>-->
+    </CollectionView>
+</ContentPage>
